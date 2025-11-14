@@ -7,15 +7,10 @@ import {
   updateDoc,
   deleteDoc,
   query,
-  where,
-  orderBy,
-  limit,
   DocumentData,
   QueryConstraint,
   Timestamp,
   addDoc,
-  CollectionReference,
-  DocumentReference,
 } from 'firebase/firestore';
 import { db } from './config';
 

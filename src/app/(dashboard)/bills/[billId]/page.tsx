@@ -12,11 +12,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BillSummary } from '@/components/bills/BillSummary';
 import { ActivityLogItem } from '@/components/bills/ActivityLogItem';
-import { AssignmentBadge } from '@/components/bills/AssignmentBadge';
-import { formatCurrency } from '@/lib/utils/calculations';
-import { ArrowLeft, UserPlus, RefreshCw } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import { Assignment, BillItem } from '@/types';
+import { Assignment, AssignmentWithUser } from '@/types';
 import { BillItemsClient } from '@/components/bills/BillItemsClient';
 import { Timestamp } from 'firebase/firestore';
 
@@ -50,14 +48,14 @@ export default async function BillDetailPage({
   const creator = await getUserById(bill.creatorId);
   
   // Get assignments for all items
-  const assignmentsMap = new Map<string, Assignment[]>();
+  const assignmentsMap = new Map<string, AssignmentWithUser[]>();
   for (const item of items) {
     const assignments = await getItemAssignmentsWithUsers(billId, item.id);
     assignmentsMap.set(item.id, assignments);
   }
 
   // Calculate summary
-  const summary = calculateBillSummary(items, assignmentsMap);
+  const summary = calculateBillSummary(items, assignmentsMap as Map<string, Assignment[]>);
   
   // Get user names for summary
   const userIds = [...new Set(summary.userAmounts.map(u => u.userId))];

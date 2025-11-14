@@ -18,7 +18,7 @@ export default async function ProfilePage() {
   const bills = await getUserBills(userId);
 
   // Calculate statistics
-  let totalBillsCreated = bills.length;
+  const totalBillsCreated = bills.length;
   let totalAmountCreated = 0;
 
   for (const bill of bills) {

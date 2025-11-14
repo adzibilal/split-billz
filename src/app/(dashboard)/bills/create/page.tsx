@@ -24,7 +24,7 @@ const billFormSchema = z.object({
     .array(
       z.object({
         name: z.string().min(1, 'Item name is required'),
-        amount: z.coerce.number().positive('Amount must be positive'),
+        amount: z.number().positive('Amount must be positive'),
       })
     )
     .min(1, 'At least one item is required'),
@@ -218,7 +218,7 @@ export default function CreateBillPage() {
                     id={`items.${index}.amount`}
                     type="number"
                     placeholder="0"
-                    {...register(`items.${index}.amount`)}
+                    {...register(`items.${index}.amount`, { valueAsNumber: true })}
                   />
                   {errors.items?.[index]?.amount && (
                     <p className="text-sm text-red-500">

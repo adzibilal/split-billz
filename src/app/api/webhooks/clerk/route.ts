@@ -75,6 +75,10 @@ export async function POST(req: Request) {
   if (eventType === 'user.deleted') {
     const { id } = evt.data;
 
+    if (!id) {
+      return new Response('Invalid user ID', { status: 400 });
+    }
+
     try {
       await adminDb.collection('users').doc(id).delete();
       return new Response('User deleted successfully', { status: 200 });

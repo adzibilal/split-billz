@@ -13,7 +13,7 @@ import {
   querySubDocuments,
   Timestamp,
 } from '@/lib/firebase/firestore';
-import { where, orderBy } from 'firebase/firestore';
+import { orderBy } from 'firebase/firestore';
 import { logActivity } from './activity.service';
 import { getUserById } from './users.service';
 
@@ -143,7 +143,7 @@ export async function deleteAssignment(
   );
 }
 
-export async function getUserAssignments(userId: string): Promise<Assignment[]> {
+export async function getUserAssignments(): Promise<Assignment[]> {
   // Note: This is complex with Firestore's subcollections
   // For a production app, consider denormalizing this data
   // For now, we'll need to query all bills and check assignments

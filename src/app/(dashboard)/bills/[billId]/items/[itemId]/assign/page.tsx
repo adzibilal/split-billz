@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useUser } from '@clerk/nextjs';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -29,7 +28,6 @@ interface PageProps {
 
 export default function AssignItemPage({ params }: PageProps) {
   const router = useRouter();
-  const { user } = useUser();
   const [billId, setBillId] = useState<string>('');
   const [itemId, setItemId] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState('');

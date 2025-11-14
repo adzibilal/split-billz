@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -46,11 +45,6 @@ export function BillItemsClient({
       </CardHeader>
       <CardContent className="space-y-4">
         {items.map((item) => {
-          const userAssignment = item.assignments.find(
-            (a) => a.userId === currentUserId
-          );
-          const isAssignedToUser = !!userAssignment;
-
           return (
             <div
               key={item.id}
