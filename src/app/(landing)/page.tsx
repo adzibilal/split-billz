@@ -33,10 +33,10 @@ export default function Home() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Link href="/login">
+            <Link href="/sign-in">
               <Button variant="outline">Login</Button>
             </Link>
-            <Link href="/register">
+            <Link href="/sign-up">
               <Button>Sign Up</Button>
             </Link>
           </div>
@@ -56,7 +56,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Link href="/register">
+                  <Link href="/sign-up">
                     <Button className="px-8">Get Started</Button>
                   </Link>
                   <Link href="#how-it-works">
@@ -195,7 +195,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Link href="/register">
+                <Link href="/sign-up">
                   <Button variant="secondary" size="lg" className="px-8">Sign Up Free</Button>
                 </Link>
               </div>
